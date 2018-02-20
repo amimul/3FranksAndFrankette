@@ -164,32 +164,32 @@ Conclusion: We have shown that previous even integers being powers of two guaran
 (a)  If players 1-10 play the game when the jerseys numbered 1-10 are placed in lockers 1-10 in the order (from locker 1 to 10):
 $$3-2-6-8-1-9-10-4-5-7$$
 
-(i) Player one opens 
+(i) The sequence of 5 lockers player one opens:
 $$1-3-6-9-5$$
 
-(ii) The cycles are:
+(ii) The cycles present in this permutation are:
 $$1-3-6-9-5$$
 $$2$$
 $$4-8$$
 $$7-10$$
 
-(iii) players will win, the longest cycle is length 5
+(iii) The players will win on this arrangement of lockers. The longest cycle is length 5.
 
-(iv) fail on
+(iv) The players will fail with this arrangement:
 $$2-3-4-5-6-7-8-9-10-1$$
-win on
+They will will with this arrangement:
 $$2-3-4-5-1-7-8-9-10-6$$
 
 
-(b) Every cycle is closed. that is there is nothing that points to any part of the cycle that is not in the cycle, this is because there is only 1 of each pointer and by  definition the n-1th locker in the cycle points to locker n so has that pointer.
+(b) Every cycle is closed: there is nothing that points to any part of the cycle that is not in the cycle. This is because there is only 1 of each pointer and by  definition the n-1th locker in the cycle points to locker n so it must have that pointer.
 
-every player start with their own number and so if they loop, they were pointed at their own number and thus win. everyone opens 5 lockers so if every $cycle \leq 5$ then everyone wins
+Every player starts by opening the locker with their own number and so if they loop, they will eventually be pointed at their own number and thus win. Everyone opens 5 lockers so if every $cycle \leq 5$ then everyone wins.
 
-if a $cycle \geq 6$ exists then every player on that cycle will not loop, and 
-thus not have seen the number of the locker they started with(their own) and thus will not win the game\\
+If a $cycle \geq 6$ exists then every player on that cycle will not loop, and 
+thus have not seen the number of the locker they started with(their own) and thus will not win the game.\\
 
-(c) probability of loss = $\frac{1}{5}+\frac{1}{6}+\frac{1}{7}+\frac{1}{8}=\frac{533}{840}$
-probability of win =1-prob of loss = $\frac{307}{840}$\\
+(c) The probability of losing for a team of 8 players = $\frac{1}{5}+\frac{1}{6}+\frac{1}{7}+\frac{1}{8}=\frac{533}{840}$
+the probability of winning =1-prob of loss = $\frac{307}{840}$\\
 
 (d) probability\footnote{seems like it should be easy to compute, but kept second guessing} that does not contain a $cycle \geq \frac{1}{3}$ 
 
