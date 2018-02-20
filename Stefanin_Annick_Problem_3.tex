@@ -1,0 +1,39 @@
+\documentclass[12pt]{article}
+\usepackage{amssymb, amsmath}
+\begin{document}
+
+Write a proof that all positive integers $\ge 2$ are either prime or can be written as the product of primes.\vspace{0.5in}
+
+There are two conditions:
+
+\prob 1. Assume $k$ is a prime, no further work needs to be done.
+
+\prob 2. Assume $k$ is a non-prime $\in \mattbb{N}$
+
+$a$ and $b \in \mattbb{N}$
+
+$k = ab$ where $1 \leq a, b, < k$\vspace{0.2in}
+
+
+Our Base Case begins at 2.
+
+2 is a prime, and therefore fulfills our first condition.\vspace{0.2in}
+
+Thus:
+
+For the purpose of the proof we will assume these statements are true up through $n$. Using induction we shall prove it holds true for $n+1$.
+
+If $n+1$ is a prime it fulfills the first condition, and therefore the theorem holds true.
+
+If $n+1$ is not a prime it can be written as $(n+1) = ab$ where $1 \leq a, b, < (n+1)$
+
+As both $a, b < n$, they fall under the previous proof and the theorm holds true.
+
+Using induction, we can show that
+$a = p_1p_2p_3.......p_h$
+and
+$b = q_1q_2q_3.......q_i$ are composed of primes. As $n = ab$,  $n = p_1q_1p_2q_2....p_hq_i$\vspace{0.5in}
+
+
+
+\end{document}
