@@ -68,11 +68,17 @@ public class Problem_Set_Graph_Theory {
             visitedRows[i]++;
             ret[i] = connectionStatus(a, temp, visitedRows, i, 0);
         }
+        boolean atLeastThree = false;
         int connections = 0;
         for (int i = 0; i < a.length; i++) {
             connections += ret[i].size();
+            if(ret[i].size() > 2){
+                atLeastThree = true;
+            }
         }
-        if(connections == 0){
+        System.out.println(a.length);
+        System.out.println(connections);
+        if(connections == 0 || atLeastThree == false){
             return 0;
         }else if(connections == a.length*a.length){
             return 2;
@@ -99,7 +105,7 @@ public class Problem_Set_Graph_Theory {
     }
 
     public static void main(String[] args){
-        int[][] testA = {{1, 1, 0, 0, 0}, {0, 1, 1, 0, 0}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {1, 0, 0, 0, 1}};
+        int[][] testA = {{0,1,0,0}, {1,0,0,0}, {0,0,0,1}, {0,0,1,0}};
         System.out.println(connectionStatus(testA));
     }
 }
