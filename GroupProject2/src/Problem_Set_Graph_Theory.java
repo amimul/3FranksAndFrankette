@@ -18,7 +18,7 @@ public class Problem_Set_Graph_Theory {
     private static boolean cycles(int[][] a, ArrayList<Integer> record, int step) {
         record.add(step);
         for (int i = 0; i < a.length; i++) {
-            if (a[step][i] == 1) {
+            if (a[step][i] == 1 && step != i) {
                 record.add(i);
                 if (record.size() > 5 && (record.get(1) != record.get(record.size() - 2)) &&
                         (record.get(0) == record.get(record.size() - 1))) {
@@ -68,12 +68,10 @@ public class Problem_Set_Graph_Theory {
             visitedRows[i]++;
             ret[i] = connectionStatus(a, temp, visitedRows, i, 0);
         }
-        System.out.println(Arrays.toString(ret));
         int connections = 0;
         for (int i = 0; i < a.length; i++) {
             connections += ret[i].size();
         }
-        System.out.println(connections);
         if(connections == 0){
             return 0;
         }else if(connections == a.length*a.length){
@@ -98,5 +96,10 @@ public class Problem_Set_Graph_Theory {
             list = connectionStatus(a, list, visitedRows, x, y + 1);
         }
         return list;
+    }
+
+    public static void main(String[] args){
+        int[][] testA = {{1, 1, 0, 0, 0}, {0, 1, 1, 0, 0}, {0, 0, 1, 1, 0}, {0, 0, 0, 1, 1}, {1, 0, 0, 0, 1}};
+        System.out.println(connectionStatus(testA));
     }
 }
