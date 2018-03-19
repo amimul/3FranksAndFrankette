@@ -33,7 +33,7 @@ public class AnthonySolution implements Solution{
 		return matrix;
 	}
 	private int countConnections(int[][] matrix) {
-		return Arrays.stream(matrix).parallel().mapToInt(row->Arrays.stream(row).parallel().reduce((x,y)->x+y).getAsInt()).reduce((x,y)->x+y).getAsInt();
+		return Arrays.stream(matrix).mapToInt(row->Arrays.stream(row).reduce((x,y)->x+y).getAsInt()).reduce((x,y)->x+y).getAsInt();
 	}
 	
 	
@@ -62,15 +62,12 @@ public class AnthonySolution implements Solution{
 	@Override
 	public int part4(int[][] matrix) {
 		ModifiedFloyedWarshal(matrix);
-		if(countConnections(matrix)==matrix.length*matrix.length) {
+		if(countConnections(matrix)==matrix.length*matrix.length) 
 			return 2;
-		}
 		OrTranspose(matrix);
 		ModifiedFloyedWarshal(matrix);
-		if(countConnections(matrix)==matrix.length*matrix.length) {
-			return 1;
-		}
-		
+		if(countConnections(matrix)==matrix.length*matrix.length)
+			return 1;	
 		return 0;
 	}
 

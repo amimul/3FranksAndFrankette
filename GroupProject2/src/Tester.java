@@ -3,10 +3,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Tester {
-	public static final int[][] TEST1;
-	public static final int[][] TEST2;
-	public static final int[][] TEST3;
-	static {
+	public static int[][] TEST1;
+	public static int[][] TEST2;
+	public static int[][] TEST3;
+	static void init() {
 		TEST1=makeSquare(toArray("[[0,1,0,0],[0,0,0,0],[0,1,0,1],[1,0,0,0]]"),0);
 		TEST2=makeSquare(toArray("[[0,1,1,1,0],[0,0,0,1,0],[0,1,0,0,0],[0,0,0,0,1],[0,1,0,0,0]]"),0);
 		TEST3=makeSquare(toArray("[[0,1,1,1,0,0,0],[0,0,0,1,1,0,0],[0,0,0,0,0,1,0],[0,0,1,0,0,1,1],[0,0,0,1,0,0,1],[0,0,0,0,0,0,0],[0,0,0,0,0,1,0]]"),0);
@@ -107,9 +107,20 @@ public class Tester {
 		};
 		
 		
-		//testPart1(anthony);
+		System.out.println("kevin");
 		testPart1(kevin);
-		//testPart1(jeff);
+		System.out.println("jeff");
+		testPart1(jeff);
+		System.out.println("anthony");
+		testPart1(anthony);
+		
+		System.out.println("jeff");
+		testPart4(jeff);
+		System.out.println("anthony");
+		testPart4(anthony);
+		System.out.println("kevin");
+		testPart4(kevin);
+		
 		/*
 		printMatrix(TEST1);
 		//printMatrix(TEST2);
@@ -129,47 +140,64 @@ public class Tester {
 		printMatrix(TEST3);
 		printMatrix(new AnthonySolution().ModifiedFloyedWarshal(TEST3));*/
 	}
-	public static void testPart1(Solution sol) {
+	public static void testPart1(Solution sol) {init();
 		int[][]matrix=makeSquare(new int[] {
 				1,1,0,0,0,
 				0,1,1,0,0,
 				0,0,1,1,0,
 				0,0,0,1,1,
 				1,0,0,0,1},0);
-		printMatrix(matrix);
-		//System.out.println(sol.part1(matrix));
-		printMatrix(matrix);
-		printMatrix(TEST1);
+		int[][] test4 = {{0,1,0,1}, {0,0,1,0}, {0,0,0,1}, {1,0,0,0}};										// strongly connected, cycle
+		int[][] test5 = {{0,1,0,0}, {0,0,0,0}, {0,0,0,1}, {0,0,0,0}};										// disconnected, no cycles
+		int[][] test6 = {{0,1,0,0}, {1,0,0,0}, {0,0,0,1}, {0,0,1,0}};	
+		long time =System.nanoTime();
+		//printMatrix(matrix);
+		System.out.println(sol.part1(matrix));
+		//printMatrix(matrix);
+		//printMatrix(TEST1);
 		System.out.println(sol.part1(TEST1));
-		printMatrix(TEST1);
-		printMatrix(TEST2);
+		//printMatrix(TEST1);
+		//printMatrix(TEST2);
 		System.out.println(sol.part1(TEST2));
-		printMatrix(TEST2);
-		printMatrix(TEST3);
+		//printMatrix(TEST2);
+		//printMatrix(TEST3);
 		System.out.println(sol.part1(TEST3));
-		printMatrix(TEST3);
+		System.out.println(sol.part1(test4));
+		System.out.println(sol.part1(test5));
+		System.out.println(sol.part1(test6));
+		//printMatrix(TEST3);
+		System.out.println(System.nanoTime()-time);
 	}
 	
 	
 	public static void testPart4(Solution sol) {
+		init();
 		int[][]matrix=makeSquare(new int[] {
 				1,1,0,0,0,
 				0,1,1,0,0,
 				0,0,1,1,0,
 				0,0,0,1,1,
 				1,0,0,0,1},0);
-		printMatrix(matrix);
+		int[][] test4 = {{0,1,0,1}, {0,0,1,0}, {0,0,0,1}, {1,0,0,0}};										// strongly connected, cycle
+		int[][] test5 = {{0,1,0,0}, {0,0,0,0}, {0,0,0,1}, {0,0,0,0}};										// disconnected, no cycles
+		int[][] test6 = {{0,1,0,0}, {1,0,0,0}, {0,0,0,1}, {0,0,1,0}};	
+		long time =System.nanoTime();
+		//printMatrix(matrix);
 		System.out.println(sol.part4(matrix));
-		printMatrix(matrix);
-		printMatrix(TEST1);
+		//printMatrix(matrix);
+		//printMatrix(TEST1);
 		System.out.println(sol.part4(TEST1));
-		printMatrix(TEST1);
-		printMatrix(TEST2);
+		//printMatrix(TEST1);
+		//printMatrix(TEST2);
 		System.out.println(sol.part4(TEST2));
-		printMatrix(TEST2);
-		printMatrix(TEST3);
+		//printMatrix(TEST2);
+		//printMatrix(TEST3);
 		System.out.println(sol.part4(TEST3));
-		printMatrix(TEST3);
+		System.out.println(sol.part4(test4));
+		System.out.println(sol.part4(test5));
+		System.out.println(sol.part4(test6));
+		//printMatrix(TEST3);
+		System.out.println(System.nanoTime()-time);
 	}
 
 }
