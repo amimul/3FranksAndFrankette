@@ -108,7 +108,7 @@ public class Tester {
 		
 		
 		System.out.println("kevin");
-		testPart1(kevin);
+		//testPart1(kevin);
 		System.out.println("jeff");
 		testPart1(jeff);
 		System.out.println("anthony");
@@ -180,7 +180,10 @@ public class Tester {
 				1,0,0,0,1},0);
 		int[][] test4 = {{0,1,0,1}, {0,0,1,0}, {0,0,0,1}, {1,0,0,0}};										// strongly connected, cycle
 		int[][] test5 = {{0,1,0,0}, {0,0,0,0}, {0,0,0,1}, {0,0,0,0}};										// disconnected, no cycles
-		int[][] test6 = {{0,1,0,0}, {1,0,0,0}, {0,0,0,1}, {0,0,1,0}};	
+		int[][] test6 = {{0,1,0,0},
+						 {1,0,0,0},
+						 {0,0,0,1},
+						 {0,0,1,0}};	
 		long time =System.nanoTime();
 		//printMatrix(matrix);
 		System.out.println(sol.part4(matrix));
