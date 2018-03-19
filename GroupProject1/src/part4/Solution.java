@@ -4,135 +4,71 @@ import java.util.ArrayList;
 
 public class Solution {
 	public static void main(String args[]) throws InterruptedException {
-		System.out.println(isBool2("true"));
-		System.out.println(isBool2("True"));
-		System.out.println(isBool2("trUe"));
-		System.out.println(isBool2("truthis"));
-		System.out.println(isBool2("FalSe"));
-		isBool("fAlSE");
-		isBool("truth");
-		isBool("true");
-		isBool("fAlSE");
-		isBool("truth");
-		isBool("falling");
-		isBool("true");
-		isBool("fAlSE");
-		isBool("truth");
-		isBool("falling");
-		isBool("falling");
-		Thread.sleep(100);
+		System.out.print("Recurisive");
+		timeTimable((int n)->niavRecursive(n));
+		System.out.println();
+		System.out.print("dynamicRecurise");
+		timeTimable((int n)->dynamicRecurise(n));
+		System.out.println();
+		System.out.print("tailRecursive");
+		timeTimable((int n)->tailRecursive(n));
+		System.out.println();
+		System.out.print("iterative");
+		timeTimable((int n)->iterative(n));
+		System.out.println();
+		System.out.print("closed");
+		timeTimable((int n)->closed(n));
 		
-		long time1=System.nanoTime();
-		isBool2("true");
-		isBool2("fAlSE");
-		isBool2("truth");
-		isBool2("falling");
-		long time2=System.nanoTime();
-		isBool("true");
-		isBool("fAlSE");
-		isBool("truth");
-		isBool("falling");
-		long time3=System.nanoTime();
-		System.out.println(time2-time1);
-		System.out.println(time3-time2);
-		 time1=System.nanoTime();
-		isBool2("true");
-		isBool2("fAlSE");
-		isBool2("truth");
-		isBool2("falling");
-		 time2=System.nanoTime();
-		isBool("true");
-		isBool("fAlSE");
-		isBool("truth");
-		isBool("falling");
-		 time3=System.nanoTime();
-		System.out.println(time2-time1);
-		System.out.println(time3-time2);
-		 time1=System.nanoTime();
-		isBool2("true");
-		isBool2("fAlSE");
-		isBool2("truth");
-		isBool2("falling");
-		 time2=System.nanoTime();
-		isBool("true");
-		isBool("fAlSE");
-		isBool("truth");
-		isBool("falling");
-		 time3=System.nanoTime();
-		System.out.println(time2-time1);
-		System.out.println(time3-time2);
+		System.out.println();
+		//runs faster the second time, must be some optimizer in the runtime
 		
-		System.out.println((char)((int)'T'|0b00100000));
-		/*
-		System.out.println(closed(10));
-		System.out.println(dynamicRecurise(10));
-		System.out.println(tailRecursive(1000));
-		System.out.println(iterative(10));
+		//running the dynamic version twice feels like cheating, but if it was being repeatedly called
+		//it would approach what this sees
+		System.out.print("dynamicRecurise");
+		timeTimable((int n)->dynamicRecurise(n));
+		System.out.println();
+		System.out.print("tailRecursive");
+		timeTimable((int n)->tailRecursive(n));
+		System.out.println();
+		System.out.print("iterative");
+		timeTimable((int n)->iterative(n));
+		System.out.println();
+		System.out.print("closed");
+		timeTimable((int n)->closed(n));
+		System.out.println();
+		System.out.print("Recurisive");
+		timeTimable((int n)->niavRecursive(n));
 		
 		
-		timeTimable((int i)->closed(i));
-		timeTimable((int i)->dynamicRecurise(i));
-		/**/
-		/*
-		System.out.println(closed(0));
-		System.out.println(niavRecursive(0));
-		System.out.println(dynamicRecurise(0));
-		System.out.println("______");
-		System.out.println(closed(1));
-		System.out.println(niavRecursive(1));
-		System.out.println(dynamicRecurise(1));
-		System.out.println("______");
-		System.out.println(closed(2));
-		System.out.println(niavRecursive(2));
-		System.out.println(dynamicRecurise(2));
-		System.out.println("______");
-		System.out.println(closed(3));
-		System.out.println(niavRecursive(3));
-		System.out.println(tailRecursive(3));/**/
 	}
 	
-	
-	public static boolean isBool2(String s){
-	    /*Crazy inlining here for speed purposes*/
-	    /*Basically it checks if the string is (case-insensitive) equal to true or false */
-	    return (s.length()==4 &&     (s.charAt(0) == 't' || s.charAt(0)== 'T') &&
-	                                    (s.charAt(1) == 'r' || s.charAt(1) == 'R') &&
-	                                    (s.charAt(2) == 'u' || s.charAt(2) == 'U') &&
-	                                    (s.charAt(3) == 'e' || s.charAt(2) == 'E')) ||
-	        ((s.length() == 5) && (s.charAt(0) == 'f' || s.charAt(0) == 'F') &&
-	                                    (s.charAt(1) == 'a' || s.charAt(1) == 'A') &&
-	                                    (s.charAt(2) == 'l' || s.charAt(2) == 'L') &&
-	                                    (s.charAt(3) == 's' || s.charAt(3) == 'S') &&
-	                                    (s.charAt(4) == 'e' || s.charAt(4) == 'E'));
-	}
-	public static boolean isBool(String s){
-	    /*Crazy inlining here for speed purposes*/
-	    /*Basically it checks if the string is (case-insensitive) equal to true or false */
-	    return ((s.length()==4 &&     ((s.charAt(0)|(char)0b0010_0000)=='t')&&
-	    		((s.charAt(1)|(char)0b0010_0000)=='r') &&
-	    		((s.charAt(2)|(char)0b0010_0000)=='u') &&
-	    		((s.charAt(3)|(char)0b0010_0000)=='e') )||
-	        ((s.length() == 5) && ((s.charAt(0)|(char)0b0010_0000)=='f') &&
-	        		((s.charAt(1)|(char)0b0010_0000)=='a') &&
-	        		((s.charAt(2)|(char)0b0010_0000)=='l') &&
-	                ((s.charAt(3)|(char)0b0010_0000)=='s') &&
-	                ((s.charAt(4)|(char)0b0010_0000)=='e')));
-	}
 	
 	
 	public static void timeTimable(Timeable algorithm) {
-		long before=System.currentTimeMillis();
-		for(int i=0;i<200000;i+=1000) {
-			algorithm.run(i);
+		//first run is always slow,
+		algorithm.run(0);
+		for(int i=0;i<1000;i+=1) {
+			long before=System.nanoTime();
+			
+			for(int j=0;j<10;j++) {
+				/*
+				 * run it 10 times to suppress random spikes
+				 * if i were really doing this correctly I'd take the median run time 
+				 * or something analogous to the mode
+				 */
+				algorithm.run(i);
+			}
+			long after=System.nanoTime();
+			long diff=after-before;
+			System.out.print(","+diff);
+			if(diff>10000000000L) {//I don't have all day, and one of this would literally take years if not millenia to run at i=1000
+				break;
+			}
 		}
-		long after=System.currentTimeMillis();
-		System.out.println(after-before);
+		
+		
 	}
-	
-	
-	
-	
-	
+	//java lambda expressions require a single method interface
 	private interface Timeable{
 		public double run(int n);
 	}
@@ -169,7 +105,7 @@ public class Solution {
 	
 	
 	private static ArrayList<Double> dynamic;
-	static {
+	static {//static initialization blocks, :)
 		dynamic=new ArrayList<Double>();
 		dynamic.add((double) 3);
 		dynamic.add((double) -5);
@@ -200,22 +136,6 @@ public class Solution {
 		
 	}
 	
-public static double nonTailRecursive(int n) {
-		
-		switch(n) {
-		case 0:return 3;
-		case 1:return -5;
-		case 2:return 29./2;
-		}
-			return(nonTailRecursiveHelper(3,-5,29./2,n-2));
-	}
-	private static double nonTailRecursiveHelper(double p3, double p2,double p1,int togo) {
-		if(togo==0) {
-			return p1;
-		}
-		return nonTailRecursiveHelper(p2,p1,.5*p1+7./2*p2-3*p3,togo-1);
-		
-	}
 	
 	
 

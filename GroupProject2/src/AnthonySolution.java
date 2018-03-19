@@ -1,7 +1,10 @@
 import java.util.Arrays;
 import java.util.List;
 
-public class AnthonySolution implements Solution{
+public class AnthonySolution implements Solution{ 
+	public void init() {
+		
+	}
 	private int[][] OrTranspose(int[][] input){
 		int[][] output=input;//new int[input.length][input.length];
 		for(int x=0;x<input.length;x++) {
@@ -43,7 +46,11 @@ public class AnthonySolution implements Solution{
 		return false;
 	}
 	@Override
-	public List<List<Integer>> part2(int[][] matrix) {
+	public List<Integer>[] part2(int[][] matrix) {
+		//List<Integer>[] ajacency=new List<Integer>[];
+		
+		
+		
 		// TODO Auto-generated method stub
 		return null;
 	}

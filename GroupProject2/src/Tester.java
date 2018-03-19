@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Tester {
 	public static final int[][] TEST1;
@@ -9,6 +11,7 @@ public class Tester {
 		TEST2=makeSquare(toArray("[[0,1,1,1,0],[0,0,0,1,0],[0,1,0,0,0],[0,0,0,0,1],[0,1,0,0,0]]"),0);
 		TEST3=makeSquare(toArray("[[0,1,1,1,0,0,0],[0,0,0,1,1,0,0],[0,0,0,0,0,1,0],[0,0,1,0,0,1,1],[0,0,0,1,0,0,1],[0,0,0,0,0,0,0],[0,0,0,0,0,1,0]]"),0);
 	}
+	public static ArrayList<int[][]> cases=new ArrayList<int[][]>();
 	
 	
 	/**
@@ -16,7 +19,6 @@ public class Tester {
 	 * @return
 	 */
 	public static int[] toArray(String input) {
-		//Arrays.stream(new int[] {1,2,3}).reduce((x,y)->x+y).getAsInt()
 		return Arrays.stream(input.replaceAll("[\\[\\]]", "").split(",")).mapToInt(s->Integer.parseInt(s)).toArray();
 	}
 	/**
@@ -42,15 +44,72 @@ public class Tester {
 		for(int[] row:matrix) {
 			System.out.println(Arrays.toString(row));
 		}
-	}/*
-	public static int[][] copyMatrix(int[][] matrix){
-		int[][]copy=new
 	}
-	*/
+	
+	
+	
+	
+	
+	
+	
 	
 	public static void main(String[] arg) {
-		Solution sol=new AnthonySolution();
-		testPart1(sol);
+		Solution anthony=new AnthonySolution();
+		Solution kevin=new Solution() {
+			@Override
+			public boolean part1(int[][] matrix) {
+				return Problem_Set_Graph_Theory.cycles(matrix);
+			}
+
+			@Override
+			public List<Integer>[] part2(int[][] matrix) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public int[][] part3(List<List<Integer>> ajacencyList) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			@Override
+			public int part4(int[][] matrix) {
+				// TODO Auto-generated method stub
+				return Problem_Set_Graph_Theory.connectionStatus(matrix);
+			}
+			
+		};
+		Solution jeff=new Solution() {
+
+			@Override
+			public boolean part1(int[][] matrix) {
+				return new AdjacencyMatrix(matrix.length,matrix).hasCycle();
+			}
+
+			@Override
+			public List<Integer>[] part2(int[][] matrix) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public int[][] part3(List<List<Integer>> ajacencyList) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public int part4(int[][] matrix) {
+				// TODO Auto-generated method stub
+				return new AdjacencyMatrix(matrix.length,matrix).hasConnection();
+			}
+			
+		};
+		
+		
+		//testPart1(anthony);
+		testPart1(kevin);
+		//testPart1(jeff);
 		/*
 		printMatrix(TEST1);
 		//printMatrix(TEST2);
@@ -78,7 +137,7 @@ public class Tester {
 				0,0,0,1,1,
 				1,0,0,0,1},0);
 		printMatrix(matrix);
-		System.out.println(sol.part1(matrix));
+		//System.out.println(sol.part1(matrix));
 		printMatrix(matrix);
 		printMatrix(TEST1);
 		System.out.println(sol.part1(TEST1));
