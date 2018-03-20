@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage{amssymb, amsmath}
+\begin{document}
+
+%section 1
+
+First we will write out a few examples to see if any patterns emerge starting at our base case 8 cents worth of stamps, the smallest amount that can be made up using a three cent stamp and a five cent stamp. Intuitively, there should at least be a pattern that cycles over 15 steps as there might be $3×5$ different combinations.
+
+\begin{table}[h]
+\caption{Table Name Here}
+\centering
+\begin{tabular}{c rrrrrrrrrrrrrrr}
+\hline\hline
+Total stamp value & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22} \\[0.5ex]
+\hline
+3 cent stamps & 1 & 3 & 0 & 2 & 4 & 1 & 3 & 0 & 2 & 4 & 1 & 3 & 0 & 2 & 4\\
+5 cent stamps & 1 & 0 & 2 & 1 & 0 & 2 & 1 & 3 & 2 & 1 & 3 & 2 & 4 & 3 & 2\\ [1ex] % [1ex]
+\hline
+\end{tabular}
+\label{tab:hresult}
+\end{table}
+
+\begin{itemize}
+  \item First we can see that there are possible combinations of stamps for all amounts up to twenty-two cents.
+  \item Second, from the examples we can see two different patterns, a cycle of three and a cycle of five. Because there are surjective cycles, we can conclude that indeed, we can produce any amount greater than or equal to eight cents from a combination of three cent and five cent stamps.
+  \item We can choose the cycle of three to minimize use of five cent stamps or the cycle over five to minimize both three cent stamps and overall number of stamps. We will show the later.
+\end{itemize}
+
+\noindent Let S(an) = F(an) + T(an) for n = 8  (finds total number of stamps)
+
+\noindent F(an) = F(an–5) + 1; (finds number of five cent stamps)
+
+With base cases: F(8) = 1; F(9) = 0; F(10) = 2; F(11) = 1; F(12) = 0
+
+\noindent T(an) = T(an–5);       (finds number of three cent stamps)
+
+With base cases: T(8) = 1; T(9) = 3; T(10) = 0; T(11) = 2; T(12) = 4
+
+%section 3
+
+Write a proof that all positive integers $\ge 2$ are either prime or can be written as the product of primes.\vspace{0.5in}
+
+There are two conditions:
+
+\prob 1. Assume $k$ is a prime, no further work needs to be done.
+
+\prob 2. Assume $k$ is a non-prime $\in \mattbb{N}$
+
+$a$ and $b \in \mattbb{N}$
+
+$k = ab$ where $1 \leq a, b, < k$\vspace{0.2in}
+
+
+Our Base Case begins at 2.
+
+2 is a prime, and therefore fulfills our first condition.\vspace{0.2in}
+
+Thus:
+
+For the purpose of the proof we will assume these statements are true up through $n$. Using induction we shall prove it holds true for $n+1$.
+
+If $n+1$ is a prime it fulfills the first condition, and therefore the theorem holds true.
+
+If $n+1$ is not a prime it can be written as $(n+1) = ab$ where $1 \leq a, b, < (n+1)$
+
+As both $a, b < n$, they fall under the previous proof and the theorm holds true.
+
+Using induction, we can show that
+$a = p_1p_2p_3.......p_h$
+and
+$b = q_1q_2q_3.......q_i$ are composed of primes. As $n = ab$,  $n = p_1q_1p_2q_2....p_hq_i$\vspace{0.5in}
+
+%section 5
+
+prob The following claim is clearly incorrect:\\
+
+{\bf Claim:} If $n$ is an even number and $n\ge 2$, then $n$ is a power of two.\\
+
+Since the claim is wrong, you know there must be a flaw in the following proof. Find it. Note that you aren't looking for what's wrong with the \emph{claim} butrather what is wrong with the logic used to `prove' it.\\
+
+{\bf ``Proof":} We proceed by induction on the even number $n$. \\
+
+Base Case: When $n=2$, $n=2^1$, a power of two.\\
+
+Inductive Step: We will assume that for all even integers $k$ less than the nexteven number $n$, $k$ is a power of 2.  Using this assumption we will show that $n$ is also a power of $2$.\\
+
+Since $n$ is even (and indeed at least 4), there is some $2\le k<n$ so that $n=2\cdot k$.  By the inductive hypothesis, $k$ is a power of two ($k=2^p$ for some $p$), and hence $n$ is $2\cdot 2^p=2^{p+1}$.  \\
+
+Conclusion: We have shown that previous even integers being powers of two guarantees that the next even integer will also be a power of two.  Since the base case is verified, this constitutes a proof by induction that all even integers $\ge 2$ are powers of two.\\
+
+%answer
+Specifying that there is a &k$ such that $2=k<n$ and $2·k=n$ doesn’t guarantee that $k$ is even and therefore, might not be a power of two, only that $n$ is even. Hence, the recurrence relation can’t be properly established.
+
+\end{document}
