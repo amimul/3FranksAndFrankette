@@ -1,3 +1,4 @@
+package OriginalCode;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class AnthonySolution implements Solution{
 	}
 	private void populateDiagnol(int[][] matrix) {
 		for(int i=0;i<matrix.length;i++) {
-			matrix[i][i]=0;
+			matrix[i][i]=1;
 		}
 	}
 	public int[][] ModifiedFloyedWarshal(int[][] matrix) {

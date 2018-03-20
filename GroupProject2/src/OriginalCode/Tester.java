@@ -1,3 +1,4 @@
+package OriginalCode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -40,9 +41,9 @@ public class Tester {
 	}
 	
 	public static void printMatrix(int[][] matrix) {
-		System.out.printf("%d x %d matrix:\n", matrix.length,matrix.length);
+		System.err.printf("%d x %d matrix:\n", matrix.length,matrix.length);
 		for(int[] row:matrix) {
-			System.out.println(Arrays.toString(row));
+			System.err.println(Arrays.toString(row));
 		}
 	}
 	
@@ -107,18 +108,18 @@ public class Tester {
 		};
 		
 		
-		System.out.println("kevin");
+		System.err.println("kevin");
 		//testPart1(kevin);
-		System.out.println("jeff");
+		System.err.println("jeff");
 		testPart1(jeff);
-		System.out.println("anthony");
+		System.err.println("anthony");
 		testPart1(anthony);
 		
-		System.out.println("jeff");
+		System.err.println("jeff");
 		testPart4(jeff);
-		System.out.println("anthony");
+		System.err.println("anthony");
 		testPart4(anthony);
-		System.out.println("kevin");
+		System.err.println("kevin");
 		testPart4(kevin);
 		
 		/*
@@ -127,16 +128,16 @@ public class Tester {
 		//printMatrix(TEST3);
 		printMatrix(new AnthonySolution().ModifiedFloyedWarshal(TEST1));
 		
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
+		System.err.println();
+		System.err.println();
+		System.err.println();
+		System.err.println();
 		printMatrix(TEST2);
 		printMatrix(new AnthonySolution().ModifiedFloyedWarshal(TEST2));
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
+		System.err.println();
+		System.err.println();
+		System.err.println();
+		System.err.println();
 		printMatrix(TEST3);
 		printMatrix(new AnthonySolution().ModifiedFloyedWarshal(TEST3));*/
 	}
@@ -150,23 +151,29 @@ public class Tester {
 		int[][] test4 = {{0,1,0,1}, {0,0,1,0}, {0,0,0,1}, {1,0,0,0}};										// strongly connected, cycle
 		int[][] test5 = {{0,1,0,0}, {0,0,0,0}, {0,0,0,1}, {0,0,0,0}};										// disconnected, no cycles
 		int[][] test6 = {{0,1,0,0}, {1,0,0,0}, {0,0,0,1}, {0,0,1,0}};	
+		int[][] test7 = {
+				{0,0,1,1},
+				{0,1,0,1},
+				{0,0,0,1},
+				{0,0,1,0}};	
 		long time =System.nanoTime();
 		//printMatrix(matrix);
-		System.out.println(sol.part1(matrix));
+		System.err.println(sol.part1(matrix));
 		//printMatrix(matrix);
 		//printMatrix(TEST1);
-		System.out.println(sol.part1(TEST1));
+		System.err.println(sol.part1(TEST1));
 		//printMatrix(TEST1);
 		//printMatrix(TEST2);
-		System.out.println(sol.part1(TEST2));
+		System.err.println(sol.part1(TEST2));
 		//printMatrix(TEST2);
 		//printMatrix(TEST3);
-		System.out.println(sol.part1(TEST3));
-		System.out.println(sol.part1(test4));
-		System.out.println(sol.part1(test5));
-		System.out.println(sol.part1(test6));
+		System.err.println(sol.part1(TEST3));
+		System.err.println(sol.part1(test4));
+		System.err.println(sol.part1(test5));
+		System.err.println(sol.part1(test6));
+		System.err.println(sol.part1(test7));
 		//printMatrix(TEST3);
-		System.out.println(System.nanoTime()-time);
+		System.err.println(System.nanoTime()-time);
 	}
 	
 	
@@ -183,24 +190,30 @@ public class Tester {
 		int[][] test6 = {{0,1,0,0},
 						 {1,0,0,0},
 						 {0,0,0,1},
-						 {0,0,1,0}};	
+						 {0,0,1,0}};
+		int[][] test7 = {
+					{0,0,1,1},
+					{0,1,0,1},
+					{0,0,0,1},
+					{0,0,1,0}};	
 		long time =System.nanoTime();
 		//printMatrix(matrix);
-		System.out.println(sol.part4(matrix));
+		System.err.println(sol.part4(matrix));
 		//printMatrix(matrix);
 		//printMatrix(TEST1);
-		System.out.println(sol.part4(TEST1));
+		System.err.println(sol.part4(TEST1));
 		//printMatrix(TEST1);
 		//printMatrix(TEST2);
-		System.out.println(sol.part4(TEST2));
+		System.err.println(sol.part4(TEST2));
 		//printMatrix(TEST2);
 		//printMatrix(TEST3);
-		System.out.println(sol.part4(TEST3));
-		System.out.println(sol.part4(test4));
-		System.out.println(sol.part4(test5));
-		System.out.println(sol.part4(test6));
+		System.err.println(sol.part4(TEST3));
+		System.err.println(sol.part4(test4));
+		System.err.println(sol.part4(test5));
+		System.err.println(sol.part4(test6));
+		System.err.println(sol.part4(test7));
 		//printMatrix(TEST3);
-		System.out.println(System.nanoTime()-time);
+		System.err.println(System.nanoTime()-time);
 	}
 
 }

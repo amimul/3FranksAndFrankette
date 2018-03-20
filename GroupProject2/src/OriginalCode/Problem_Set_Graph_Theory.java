@@ -1,3 +1,4 @@
+package OriginalCode;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -76,8 +77,6 @@ public class Problem_Set_Graph_Theory {
                 atLeastThree = true;
             }
         }
-        System.out.println(a.length);
-        System.out.println(connections);
         if(connections == 0 || atLeastThree == false){
             return 0;
         }else if(connections == a.length*a.length){
